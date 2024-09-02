@@ -44,7 +44,7 @@ plot(pruned_anolis)  # Visualize pruned tree
 Vx = setNames(anolisdata[, 22],rownames(anolisdata))
 Vy = setNames(anolisdata[, 21],rownames(anolisdata))
 
-Cxy=sqrt(Vx*Vy)*runif(length(tree$tip),min=-1,max=1)
+Cxy=sqrt(Vx*Vy)*runif(length(pruned_anolis$tip),min=-1,max=1)
 
 result <- pgls.Ives(pruned_anolis,
                     X = setNames(anolisdata[, 8],rownames(anolisdata)),
