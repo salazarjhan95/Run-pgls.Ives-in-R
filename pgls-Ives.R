@@ -40,11 +40,16 @@ plot(pruned_anolis)  # Visualize pruned tree
 ## We can estimated from the with species covariance between x and y for each taxon, divided by the taxon-specific sample size.
 ## In this example Cxy is 0
 
+# Stimate Cxy for each species in the tree and the data set
+Vx = setNames(anolisdata[, 22],rownames(anolisdata))
+Vy = setNames(anolisdata[, 21],rownames(anolisdata))
+
+Cxy=sqrt(Vx*Vy)*runif(length(tree$tip),min=-1,max=1)
+
 result <- pgls.Ives(pruned_anolis,
                     X = setNames(anolisdata[, 8],rownames(anolisdata)),
                     y = setNames(anolisdata[, 6],rownames(anolisdata)),
-                    Vx = setNames(anolisdata[, 22],rownames(anolisdata)),
-                    Vy = setNames(anolisdata[, 21],rownames(anolisdata)),
+                    Vx, Vy,
                     Cxy = setNames(rep(0,length(Cxy5)),rownames(anolisdata)))
 
 result
