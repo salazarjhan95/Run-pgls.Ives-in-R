@@ -55,10 +55,9 @@ result <- pgls.Ives(pruned_anolis,
 result
 
 ## Here, we are just vizualizing what we just did
-cor1 <- lm(anolisdata[, 8] ~ anolisdata[, 6])
-summary(cor1)
 plot(anolisdata[, 6], anolisdata[, 8])
+## Here, we have to replace a and b with the results from the analysis; that are alpha and beta
 abline(a = 4.1, b = -0,1)
 
-## We have to keep in mind that I don't consider this implementation to be super reliable 
+## We have to keep in mind that this implementation is not consider to be super reliable 
 ## (as indicated in the warning message). Please treat the results with caution!
